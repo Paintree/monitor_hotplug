@@ -1,0 +1,12 @@
+[Unit]
+Description=Switch display and audio output based on monitor connection
+After=graphical.target
+
+[Service]
+Type=simple
+User=paintree
+Environment="WAYLAND_DISPLAY=wayland-0"
+ExecStart=/usr/local/bin/switch_display.sh
+
+[Install]
+WantedBy=default.target

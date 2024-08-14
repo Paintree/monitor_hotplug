@@ -5,10 +5,9 @@ MONITOR="DP-1"
 TV="HDMI-A-2"
 
 MONITOR_AUDIO_SINK="alsa_output.usb-Topping_DX3_Pro_-00.HiFi__Headphones__sink"
-TV_AUDIO_SINK="alsa_output.pci-0000_01_00.1.hdmi-stereo-extra1.8"
+TV_AUDIO_SINK=$(pactl list short sinks | grep 'alsa_output.pci-0000_01_00.1.hdmi' | awk '{print $2}')
 
 MONITOR_CONNECTED=$(kscreen-doctor -j | jq -r '.outputs[] | select(.name=="DP-1") | .connected')
-echo $MONITOR_CONNECTED
 
 if [ "$MONITOR_CONNECTED" == "true" ]; then
     # Monitor is connected, switch to it
