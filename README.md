@@ -1,2 +1,2 @@
 # monitor_hotplug
-Script that disables HDMI output when displayport is connected
+Script that disables HDMI output when DisplayPort is connected
